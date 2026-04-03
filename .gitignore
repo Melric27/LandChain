@@ -139,13 +139,13 @@ temp/
 
 ---
 
-## One Important Note for Windows WSL2
+# ## One Important Note for Windows WSL2
 
-All your project files should live **inside WSL2 filesystem**, not on your Windows C drive. So your project path should look like:
-```
-/home/yourusername/land-registry/
-```
+# All your project files should live **inside WSL2 filesystem**, not on your Windows C drive. So your project path should look like:
+# ```
+# /home/yourusername/land-registry/
+# ```
 
-Not:
-```
-/mnt/c/Users/yourname/land-registry/
+# Not:
+# ```
+# /mnt/c/Users/yourname/land-registry/
