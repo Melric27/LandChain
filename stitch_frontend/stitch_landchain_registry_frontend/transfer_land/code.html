@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transfer Land | LandChain Registry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,400;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#ebe8e3",
+                    "primary-fixed-dim": "#95d2c8",
+                    "tertiary-fixed-dim": "#d0c4bc",
+                    "tertiary": "#312b25",
+                    "on-primary-fixed-variant": "#095049",
+                    "secondary-fixed": "#dde3eb",
+                    "outline-variant": "#bfc9c6",
+                    "tertiary-container": "#48413b",
+                    "on-surface-variant": "#3f4947",
+                    "surface-container-highest": "#e5e2dd",
+                    "inverse-surface": "#31302d",
+                    "surface-bright": "#fcf9f4",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#dde3eb",
+                    "on-secondary-container": "#5f656c",
+                    "on-background": "#1c1c19",
+                    "surface-tint": "#2b6860",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e5e2dd",
+                    "secondary": "#595f66",
+                    "surface": "#fcf9f4",
+                    "on-secondary-fixed-variant": "#41474e",
+                    "primary-fixed": "#b1eee4",
+                    "on-secondary-fixed": "#161c22",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f4",
+                    "secondary-fixed-dim": "#c1c7cf",
+                    "inverse-primary": "#95d2c8",
+                    "primary": "#00322d",
+                    "outline": "#707977",
+                    "primary-container": "#004b44",
+                    "on-tertiary-fixed-variant": "#4d453f",
+                    "on-tertiary-container": "#b8ada5",
+                    "surface-container-low": "#f6f3ee",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "surface-dim": "#dcdad5",
+                    "inverse-on-surface": "#f3f0eb",
+                    "surface-container": "#f0ede8",
+                    "on-primary-container": "#7ebab0",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#00201c",
+                    "tertiary-fixed": "#ece0d8",
+                    "on-tertiary-fixed": "#201b15"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Newsreader', serif;
+        }
+        .stately-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 px-6 bg-[#fcf9f4] dark:bg-[#1c1c19] h-screen w-64 border-r border-[#f6f3ee]/10 z-40">
+<div class="mb-12">
+<h1 class="text-2xl font-serif text-[#00322d] dark:text-[#fcf9f4]">The Modern Archive</h1>
+<p class="font-['Newsreader'] tracking-tight text-[#312b25] dark:text-[#f6f3ee] text-sm opacity-60">Registry Ledger</p>
+</div>
+<nav class="flex-1 space-y-4">
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors stately-transition" href="#">
+<span class="material-symbols-outlined" data-icon="book_5">book_5</span>
+<span class="font-['Newsreader'] tracking-tight">Ledger</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-[#00322d] dark:text-[#fcf9f4] font-semibold border-l-2 border-[#00322d] pl-4 stately-transition" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-['Newsreader'] tracking-tight">Registry</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors stately-transition" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-['Newsreader'] tracking-tight">Analytics</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors stately-transition" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-['Newsreader'] tracking-tight">Archive</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors stately-transition" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Newsreader'] tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-4 pt-6 border-t border-outline-variant/20">
+<button class="w-full py-2 px-4 bg-primary text-on-primary rounded-md text-xs font-medium stately-transition hover:opacity-90">Switch Role</button>
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-['Newsreader'] tracking-tight">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] bg-[#fcf9f4]/80 dark:bg-[#1c1c19]/80 backdrop-blur-md shadow-[0px_20px_40px_rgba(28,28,25,0.06)]">
+<div class="flex items-center gap-8">
+<span class="font-serif text-xl italic text-[#00322d] dark:text-[#fcf9f4]">Land Registry</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] transition-colors" href="#">Provenance</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-[#00322d] dark:text-[#fcf9f4] border-b-2 border-[#00322d] pb-1" href="#">Transfers</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] transition-colors" href="#">Legal</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-3 mr-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary" data-icon="history">history</span>
+</div>
+<button class="bg-surface-container-highest text-primary px-4 py-1.5 rounded-md text-sm font-medium hover:bg-surface-variant transition-colors">Filter</button>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">New Entry</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 bg-surface-container-high border border-outline-variant/30">
+<img alt="Archivist Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a professional male archivist with glasses and a friendly expression, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk6LlBKNyDma8ahEE-meTRclsxfieF-5XwN87pQ51SsnxkU97ZoStzQV9txH1jeS0Ccr8BRwYfXxte6rmaRSwagNdqZaAsoLUkmrbKN7KV56YTUAPEKo6BwkQcuF5djf6VC3Ec7c-rJARshIcDO2hVBdFwtqhmxO46JhqReau5pNt5mODS2EOwl6rgZbvY0B3zrUIzMdEtmrTy8YVyTbvSeEYUCHjvRGBjAuoslTRQ_XvxP5OB8H4n0nqYxyXpavAiGiTpI_RLp80y"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-12 max-w-7xl">
+<!-- Hero Section Asymmetry -->
+<section class="mb-16 grid grid-cols-12 gap-8 items-end">
+<div class="col-span-12 lg:col-span-7">
+<span class="font-label text-xs tracking-[0.2em] uppercase text-secondary mb-4 block">Transaction Protocol v4.0</span>
+<h2 class="text-6xl text-primary leading-tight font-headline">Transfer Legal <br/><span class="italic text-tertiary">Estate Ownership</span></h2>
+<p class="mt-6 text-lg text-secondary max-w-lg font-body leading-relaxed">
+                    Executing a deed transfer on LandChain requires valid parcel identification and recipient digital signature credentials. All transfers are immutably recorded in the ledger.
+                </p>
+</div>
+<div class="col-span-12 lg:col-span-5 flex justify-end">
+<div class="bg-surface-container-low p-8 rounded-xl border-l-4 border-primary max-w-sm">
+<p class="text-sm font-label text-secondary mb-2 italic">Current Registry Status</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-primary font-bold text-xl uppercase tracking-tighter">Syncing: Block 842,912</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Layout for Form and Details -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Left: Primary Transfer Form -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_20px_40px_rgba(28,28,25,0.03)] border-b-2 border-surface-container-high">
+<form class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<!-- Parcel ID -->
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-tertiary">Parcel Identifier</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary px-0 py-3 text-primary font-body text-lg transition-all placeholder:text-outline/50" placeholder="LC-892-XXXX-99" type="text"/>
+<span class="material-symbols-outlined absolute right-0 top-3 text-outline/50" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+<p class="text-[10px] text-secondary/60">Search by blockchain hash or physical deed ID</p>
+</div>
+<!-- Recipient Wallet -->
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-tertiary">Recipient Digital Key</label>
+<input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary px-0 py-3 text-primary font-body text-lg transition-all placeholder:text-outline/50" placeholder="0x71C...8eE2" type="text"/>
+<p class="text-[10px] text-secondary/60">Verified LandChain address required</p>
+</div>
+</div>
+<!-- Transfer Details -->
+<div class="space-y-8 pt-6 border-t border-surface-container-low">
+<h3 class="text-2xl text-primary italic">Transfer Specifics</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<label class="block text-xs font-bold text-secondary">Effective Date</label>
+<input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 py-2" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-secondary">Transfer Type</label>
+<select class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 py-2">
+<option>Full Ownership</option>
+<option>Leasehold Interest</option>
+<option>Easement Grant</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-secondary">Consideration (USD)</label>
+<input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 py-2" placeholder="450,000" type="number"/>
+</div>
+</div>
+</div>
+<!-- Authorization -->
+<div class="bg-primary/5 p-6 rounded-lg flex items-start gap-4 mt-8">
+<div class="pt-1">
+<input class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+</div>
+<div>
+<p class="text-sm text-primary-container leading-snug">
+                                I confirm that all submitted documentation is legally binding and the digital signature used for this transaction represents my irrevocable consent to the transfer of property title LC-892-XXXX-99.
+                            </p>
+</div>
+</div>
+<div class="pt-6 flex justify-between items-center">
+<button class="text-secondary hover:text-primary transition-colors text-sm font-medium underline underline-offset-4" type="button">Save Draft</button>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-md font-bold uppercase tracking-widest text-sm hover:opacity-95 shadow-xl stately-transition" type="submit">
+                            Execute Transfer
+                        </button>
+</div>
+</form>
+</div>
+<!-- Right: Supportive Information -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Map Widget -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden h-64 relative group border border-outline-variant/10">
+<img class="w-full h-full object-cover grayscale-[20%] group-hover:scale-105 stately-transition" data-alt="Overhead satellite view of a high-end suburban property parcel with green lawns and a modern house structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4nYjo8U-QKAWh8FfgqonJHz8_ibl0FrGtQKMFH_dzXBGZ9CvREJfjbBeNv3kXyH9p8px3Y2-B9e30v7H_Ra9UCoW2gyEFkjMn7CAyVf_eagGrH3VxfeqmZLvvUOMAYv1DN5oe7uxJ1s6nMsWOYt-wHpmhDAWAGHLk94IXMGyqXqLx-uZ3P-onm5vNYPNpgTYF33M3-bFzGZ1unTSZeXU9Bu2DKiEEEFdZo5RCn3qK2FsW2hYq-CpGaYTGZ_lJfMbp9nlX55PhtyDS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-on-primary">
+<p class="text-[10px] uppercase tracking-widest opacity-80">Parcel Preview</p>
+<p class="font-headline italic">Oakwood Estate, Plot 4B</p>
+</div>
+<div class="absolute top-4 right-4 bg-surface px-3 py-1 rounded-full text-[10px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="location_on">location_on</span>
+                        40.7128° N, 74.0060° W
+                    </div>
+</div>
+<!-- Legal Checklist -->
+<div class="bg-surface-container-high p-8 rounded-xl space-y-6">
+<h3 class="text-xl text-primary border-b border-outline-variant/30 pb-4">Verification Checklist</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="space-y-1">
+<p class="text-sm font-bold text-tertiary">Deed Authenticated</p>
+<p class="text-xs text-secondary">System verified physical deed match</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="space-y-1">
+<p class="text-sm font-bold text-tertiary">Encumbrance Search</p>
+<p class="text-xs text-secondary">Zero liens detected on property asset</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline-variant text-sm mt-1" data-icon="pending">pending</span>
+<div class="space-y-1">
+<p class="text-sm font-bold text-secondary">Notary Seal</p>
+<p class="text-xs text-secondary">Waiting for digital notary confirmation</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Archive Note -->
+<div class="bg-tertiary p-8 rounded-xl text-on-tertiary-container relative overflow-hidden">
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-5" data-icon="history_edu">history_edu</span>
+<p class="text-xs uppercase tracking-[0.2em] mb-4 text-tertiary-fixed">Archivist's Note</p>
+<p class="font-headline italic text-lg leading-relaxed text-surface-bright">
+                        "Every transfer of land is a ripple in the sea of history. We record it here so that the future may know its origins with absolute certainty."
+                    </p>
+</div>
+</div>
+</div>
+<!-- Recent Transfer Activity Table-less layout -->
+<section class="mt-20">
+<div class="flex justify-between items-end mb-8">
+<h3 class="text-3xl text-primary">Global <span class="italic">Registry Stream</span></h3>
+<a class="text-sm font-label uppercase tracking-widest text-secondary border-b border-outline hover:text-primary transition-colors" href="#">View All Ledger Logs</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Ledger Item 1 -->
+<div class="bg-surface-container-low p-5 rounded-lg border-l-2 border-primary-container stately-transition hover:bg-surface-container-high cursor-default">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-bold uppercase text-secondary">2m Ago</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold">COMPLETED</span>
+</div>
+<p class="font-headline text-lg text-primary mb-1">Willow Brook, Lot 12</p>
+<p class="font-body text-xs text-secondary font-mono truncate">0x92a...f912 → 0x112...cd98</p>
+</div>
+<!-- Ledger Item 2 -->
+<div class="bg-surface-container-low p-5 rounded-lg border-l-2 border-primary-container stately-transition hover:bg-surface-container-high cursor-default">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-bold uppercase text-secondary">14m Ago</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold">COMPLETED</span>
+</div>
+<p class="font-headline text-lg text-primary mb-1">Crestview Commercial</p>
+<p class="font-body text-xs text-secondary font-mono truncate">0x551...bc21 → 0x889...ef42</p>
+</div>
+<!-- Ledger Item 3 -->
+<div class="bg-surface-container-low p-5 rounded-lg border-l-2 border-tertiary stately-transition hover:bg-surface-container-high cursor-default">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-bold uppercase text-secondary">41m Ago</span>
+<span class="bg-tertiary/10 text-tertiary px-2 py-0.5 rounded text-[10px] font-bold">PENDING</span>
+</div>
+<p class="font-headline text-lg text-primary mb-1">Highland Range</p>
+<p class="font-body text-xs text-secondary font-mono truncate">0xcc4...012a → 0xaa2...bb12</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Support Floating UI -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="bg-primary text-on-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center stately-transition hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</button>
+</div>
+</body></html>

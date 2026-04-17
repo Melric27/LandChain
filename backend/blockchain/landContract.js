@@ -9,7 +9,7 @@ class LandContract {
   /**
    * Register a new land parcel on the ledger.
    */
-  createLand(landId, owner, location, area, price) {
+  createLand(landId, owner, location, area, price, latitude = null, longitude = null) {
     if (this.worldState.has(landId)) {
       throw new Error(`Land "${landId}" already exists. Duplicate registration is not allowed.`);
     }
@@ -20,6 +20,8 @@ class LandContract {
       location,
       area,
       price,
+      latitude,
+      longitude,
       createdAt: new Date().toISOString(),
     };
 
@@ -32,6 +34,8 @@ class LandContract {
       location,
       area,
       price,
+      latitude,
+      longitude,
     });
 
     return { record, block };

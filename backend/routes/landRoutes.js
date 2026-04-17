@@ -1,5 +1,6 @@
 const express = require('express');
 const { requireRole } = require('../middleware/permissions');
+const crypto = require('crypto');
 
 module.exports = function createLandRoutes(contract) {
   const router = express.Router();
@@ -7,16 +8,18 @@ module.exports = function createLandRoutes(contract) {
   // ─── POST /api/createLand ───────────────────────────────
   router.post('/createLand', requireRole('admin'), (req, res) => {
     try {
-      const { landId, owner, location, area, price } = req.body;
+      const { owner, location, area, price, latitude, longitude } = req.body;
 
-      if (!landId || !owner || !location || !area || !price) {
+      if (!owner || !location || !area || !price) {
         return res.status(400).json({
           success: false,
-          error: 'All fields are required: landId, owner, location, area, price',
+          error: 'All fields are required: owner, location, area, price',
         });
       }
 
-      const result = contract.createLand(landId, owner, location, parseFloat(area), parseFloat(price));
+      const landId = `LAND-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
+
+      const result = contract.createLand(landId, owner, location, parseFloat(area), parseFloat(price), latitude, longitude);
       res.status(201).json({ success: true, message: `Land "${landId}" registered successfully.`, ...result });
     } catch (err) {
       res.status(409).json({ success: false, error: err.message });

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Provenance Record | LandChain Registry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#ebe8e3",
+                    "primary-fixed-dim": "#95d2c8",
+                    "tertiary-fixed-dim": "#d0c4bc",
+                    "tertiary": "#312b25",
+                    "on-primary-fixed-variant": "#095049",
+                    "secondary-fixed": "#dde3eb",
+                    "outline-variant": "#bfc9c6",
+                    "tertiary-container": "#48413b",
+                    "on-surface-variant": "#3f4947",
+                    "surface-container-highest": "#e5e2dd",
+                    "inverse-surface": "#31302d",
+                    "surface-bright": "#fcf9f4",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#dde3eb",
+                    "on-secondary-container": "#5f656c",
+                    "on-background": "#1c1c19",
+                    "surface-tint": "#2b6860",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e5e2dd",
+                    "secondary": "#595f66",
+                    "surface": "#fcf9f4",
+                    "on-secondary-fixed-variant": "#41474e",
+                    "primary-fixed": "#b1eee4",
+                    "on-secondary-fixed": "#161c22",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f4",
+                    "secondary-fixed-dim": "#c1c7cf",
+                    "inverse-primary": "#95d2c8",
+                    "primary": "#00322d",
+                    "outline": "#707977",
+                    "primary-container": "#004b44",
+                    "on-tertiary-fixed-variant": "#4d453f",
+                    "on-tertiary-container": "#b8ada5",
+                    "surface-container-low": "#f6f3ee",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "surface-dim": "#dcdad5",
+                    "inverse-on-surface": "#f3f0eb",
+                    "surface-container": "#f0ede8",
+                    "on-primary-container": "#7ebab0",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#00201c",
+                    "tertiary-fixed": "#ece0d8",
+                    "on-tertiary-fixed": "#201b15"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { background-color: #fcf9f4; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<div class="grain-overlay"></div>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 px-6 bg-[#fcf9f4] dark:bg-[#1c1c19] h-screen w-64 border-r border-[#f6f3ee]/10 z-40">
+<div class="mb-12">
+<h1 class="text-2xl font-serif text-[#00322d] dark:text-[#fcf9f4]">The Modern Archive</h1>
+<p class="font-['Newsreader'] tracking-tight text-[#312b25] dark:text-[#f6f3ee] text-xs opacity-60">Registry Ledger</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 py-3 transition-all scale-98 hover:bg-[#f6f3ee] dark:hover:bg-[#312b25] text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">book_5</span>
+<span class="font-['Newsreader'] tracking-tight">Ledger</span>
+</a>
+<a class="flex items-center gap-3 py-3 transition-all scale-98 hover:bg-[#f6f3ee] dark:hover:bg-[#312b25] text-[#00322d] dark:text-[#fcf9f4] font-semibold border-l-2 border-[#00322d] pl-4" href="#">
+<span class="material-symbols-outlined text-lg">account_balance</span>
+<span class="font-['Newsreader'] tracking-tight">Registry</span>
+</a>
+<a class="flex items-center gap-3 py-3 transition-all scale-98 hover:bg-[#f6f3ee] dark:hover:bg-[#312b25] text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">monitoring</span>
+<span class="font-['Newsreader'] tracking-tight">Analytics</span>
+</a>
+<a class="flex items-center gap-3 py-3 transition-all scale-98 hover:bg-[#f6f3ee] dark:hover:bg-[#312b25] text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+<span class="font-['Newsreader'] tracking-tight">Archive</span>
+</a>
+<a class="flex items-center gap-3 py-3 transition-all scale-98 hover:bg-[#f6f3ee] dark:hover:bg-[#312b25] text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="font-['Newsreader'] tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-4 border-t border-outline-variant/10 pt-8">
+<button class="bg-primary py-2 px-4 rounded text-white text-xs tracking-widest uppercase font-semibold hover:opacity-90 transition-opacity">
+                Switch Role
+            </button>
+<div class="flex items-center gap-3 px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Archivist profile portrait in professional attire with soft library lighting and warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8GHEdT9S9n0EdjIk_4qHJ49_JpJrsfn7_K2pWrsVRQM1azbRUzx_6ns2bRj7rhe8vi-SQM3piKSblHn2Y5rRVaSH5WpU8Zz2x1ITEYEdjpGvrJCv3qJp-GHT5CSP6nM1fdk4V5Zsvqrf-H5_LsIC0ugr023y1LQI9gATMr10dixEO0-hmKYTNk11yIzKnepWZJrLVpav5-WKCd8yYk_WmTXdqnuEK8UHs0BAorX_E-_Gc-hSp0bYQU4_NjrGgcxEycvPZ1VT4uFci"/>
+</div>
+<div>
+<p class="text-xs font-bold font-headline leading-none">A. Sterling</p>
+<p class="text-[10px] text-secondary opacity-70">Senior Archivist</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] bg-[#fcf9f4]/80 dark:bg-[#1c1c19]/80 backdrop-blur-md shadow-[0px_20px_40px_rgba(28,28,25,0.06)]">
+<div class="flex items-center gap-8">
+<span class="font-serif text-xl italic text-[#00322d] dark:text-[#fcf9f4]">Land Registry</span>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary text-lg">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Search Land ID, Coordinates..." type="text"/>
+</div>
+</div>
+<nav class="flex items-center gap-6 font-['Inter'] text-sm tracking-wide uppercase font-medium">
+<a class="text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] transition-colors" href="#">Provenance</a>
+<a class="text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] transition-colors" href="#">Transfers</a>
+<a class="text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] transition-colors" href="#">Legal</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer transition-colors">history</span>
+<button class="bg-surface-container-highest px-4 py-1.5 rounded text-xs text-primary font-bold hover:bg-surface-container-high transition-colors">Filter</button>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded text-xs font-bold hover:opacity-90 transition-opacity">New Entry</button>
+</div>
+</header>
+<!-- Main Content Shell -->
+<main class="ml-64 p-12 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Hero Provenance Header -->
+<div class="relative mb-20 flex flex-col md:flex-row items-end gap-12">
+<div class="flex-1">
+<span class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary font-bold mb-4 block">Asset ID: #LR-9283-BLOCK-Z</span>
+<h2 class="font-headline text-7xl md:text-8xl leading-tight text-primary font-semibold -ml-1">Estate of Old Oak</h2>
+<p class="font-headline text-2xl text-tertiary mt-4 italic opacity-80 max-w-xl">
+                        A definitive provenance record of Section 42, North Valley, held on the immutable ledger of the modern archive.
+                    </p>
+</div>
+<div class="w-full md:w-1/3 aspect-[4/5] bg-surface-container-low overflow-hidden rounded-lg shadow-xl relative translate-y-8">
+<img class="w-full h-full object-cover" data-alt="Expansive rolling green hills landscape under a moody twilight sky with dramatic lighting and high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb0tGItGLyODgzZUoHltxRFCKTT2R8BCrASS3_vLjcyLxEcZNgwu8fDGxklIPE0PibghK0NdJS5OZ82gJCHa68HYjTtfpYejmrtpnQj97BSaGdok_DZKY2RlXliKqmEC-bCFQol9KXj3PCgXw0cr7XtuHW8-b_hqJuPF-Or9t_R0nVW8G7mc2MSO9LyW_YltzRho7dslMb84z-tDAsiybP9nKqs88gt_TEvKJOIVCeso7j0D4uhjZJIGPCZS3G8MjgCaefZz9H24Am"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+<div class="absolute bottom-6 left-6 right-6 p-4 bg-surface-bright/90 backdrop-blur shadow-sm">
+<p class="font-label text-[10px] tracking-widest uppercase font-bold text-primary mb-1">Geospatial Marker</p>
+<p class="font-body text-xs text-on-surface font-medium">34.0522° N, 118.2437° W</p>
+</div>
+</div>
+</div>
+<!-- Provenance Timeline Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Left: Stats & Metadata -->
+<div class="lg:col-span-4 sticky top-32 space-y-12">
+<section>
+<h3 class="font-headline text-xl mb-6 flex items-center gap-2">
+<span class="w-6 h-px bg-primary/30"></span>
+                            Ledger Summary
+                        </h3>
+<div class="space-y-4">
+<div class="p-6 bg-surface-container-lowest shadow-sm rounded-xl border-l-4 border-primary">
+<p class="font-label text-[10px] text-secondary font-bold uppercase mb-1">Total Ownership Cycles</p>
+<p class="text-4xl font-headline text-on-surface">14 Records</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl">
+<p class="font-label text-[10px] text-secondary font-bold uppercase mb-1">Last Validated</p>
+<p class="text-xl font-headline text-on-surface">24 Oct 2023</p>
+<p class="font-body text-[10px] opacity-60 mt-2 font-mono">HASH: 0x921A...BB32</p>
+</div>
+</div>
+</section>
+<section>
+<h3 class="font-headline text-xl mb-6 flex items-center gap-2">
+<span class="w-6 h-px bg-primary/30"></span>
+                            Archivist Notes
+                        </h3>
+<p class="font-body text-sm leading-relaxed text-secondary italic">
+                            "The lineage of this parcel traces back to the original 1884 charter. Digital transition was completed in 2021 with full biometric confirmation of historical deeds."
+                        </p>
+</section>
+</div>
+<!-- Right: The Provenance Timeline -->
+<div class="lg:col-span-8 relative">
+<!-- Vertical Line -->
+<div class="absolute left-6 top-4 bottom-4 w-px bg-outline-variant/30"></div>
+<!-- Timeline Events -->
+<div class="space-y-16">
+<!-- Current Owner -->
+<div class="relative pl-16">
+<div class="absolute left-4 top-1.5 w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed ring-opacity-50"></div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label text-[10px] text-primary font-bold tracking-[0.2em] uppercase mb-1 block">Active Record</span>
+<h4 class="font-headline text-3xl text-on-surface mb-2">Elias Thorne Trust</h4>
+<p class="font-body text-sm text-secondary mb-4">Acquired via Private Transfer • Ledger Block #892,102</p>
+</div>
+<span class="font-headline text-lg italic text-secondary">2023—Present</span>
+</div>
+<div class="mt-4 p-6 bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.02)] flex gap-6 items-center">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<div>
+<p class="font-label text-[10px] font-bold uppercase text-secondary">Biometric Verification</p>
+<p class="font-body text-sm text-on-surface mt-1">Registry integrity confirmed by Archival Node 08.</p>
+</div>
+</div>
+</div>
+<!-- Historical Event 1 -->
+<div class="relative pl-16 opacity-70 hover:opacity-100 transition-opacity">
+<div class="absolute left-5 top-2 w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label text-[10px] text-secondary font-bold tracking-[0.2em] uppercase mb-1 block">Historical Record</span>
+<h4 class="font-headline text-2xl text-on-surface mb-2">Vanguard Green Initiatives</h4>
+<p class="font-body text-sm text-secondary mb-4">Liquidation Event • Ledger Block #712,004</p>
+</div>
+<span class="font-headline text-lg italic text-secondary">2018—2023</span>
+</div>
+</div>
+<!-- Historical Event 2 (Bento Style Sub-Record) -->
+<div class="relative pl-16">
+<div class="absolute left-5 top-2 w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="flex items-start justify-between mb-6">
+<div>
+<span class="font-label text-[10px] text-secondary font-bold tracking-[0.2em] uppercase mb-1 block">Institutional Transfer</span>
+<h4 class="font-headline text-2xl text-on-surface">The Miller Family Portfolio</h4>
+</div>
+<span class="font-headline text-lg italic text-secondary">1992—2018</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 rounded-xl bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 transition-all duration-700" data-alt="Architectural detail of a weathered stone pillar and classic archway with warm sunlight shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-SKnqqYwwZ41scx4MdBDXXb2U5LNMqCEhOWYE0WVviccz-G8ojZQkrEunq22OUsDflcyrXFwy7lrRpJmxEVFSamKBL1372aP3TMgJKmp0EmczYVmBJ7FeqfSjErJfBMv-EmJR8GbGtQ6B2EZus_B647z6ri7vMJWAMLH1ZTxeq9vEfabzC8IClXlA8kt9QZEdQW2PeZerRHL7DleDto-ECueWH-4_Hmodgu2HHjMki5upG4lNB4P-KuFh-Gl7u0s5bE70EfsrNlzt"/>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl flex flex-col justify-center">
+<span class="material-symbols-outlined text-primary mb-2">history_edu</span>
+<p class="font-label text-[10px] font-bold uppercase text-secondary">Legacy Deed</p>
+<p class="text-[10px] font-body opacity-60 leading-tight">Physical document archived in Vault S-09 during 2021 digital migration.</p>
+</div>
+</div>
+</div>
+<!-- Ancient History Record -->
+<div class="relative pl-16 opacity-40 hover:opacity-100 transition-opacity">
+<div class="absolute left-5 top-2 w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label text-[10px] text-secondary font-bold tracking-[0.2em] uppercase mb-1 block">Original Charter</span>
+<h4 class="font-headline text-2xl text-on-surface mb-2">North Valley Agricultural Society</h4>
+<p class="font-body text-sm text-secondary mb-4">Primary Land Grant • Paper Records only</p>
+</div>
+<span class="font-headline text-lg italic text-secondary">1884—1992</span>
+</div>
+</div>
+</div>
+<!-- Footer of Timeline -->
+<div class="mt-20 flex justify-center">
+<button class="font-label text-[10px] tracking-[0.3em] font-bold text-primary uppercase border border-primary/20 px-8 py-3 rounded-full hover:bg-primary/5 transition-colors">
+                            Request Full Chain of Title
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Legal Action (Suppressed as per rules for detailed screen, but adding a specialized help trigger) -->
+<div class="fixed bottom-10 right-10 flex flex-col gap-4 z-50">
+<button class="w-14 h-14 bg-on-background text-surface rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</body></html>

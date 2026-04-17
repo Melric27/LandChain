@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LandChain | The Modern Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#ebe8e3",
+                    "primary-fixed-dim": "#95d2c8",
+                    "tertiary-fixed-dim": "#d0c4bc",
+                    "tertiary": "#312b25",
+                    "on-primary-fixed-variant": "#095049",
+                    "secondary-fixed": "#dde3eb",
+                    "outline-variant": "#bfc9c6",
+                    "tertiary-container": "#48413b",
+                    "on-surface-variant": "#3f4947",
+                    "surface-container-highest": "#e5e2dd",
+                    "inverse-surface": "#31302d",
+                    "surface-bright": "#fcf9f4",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#dde3eb",
+                    "on-secondary-container": "#5f656c",
+                    "on-background": "#1c1c19",
+                    "surface-tint": "#2b6860",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e5e2dd",
+                    "secondary": "#595f66",
+                    "surface": "#fcf9f4",
+                    "on-secondary-fixed-variant": "#41474e",
+                    "primary-fixed": "#b1eee4",
+                    "on-secondary-fixed": "#161c22",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f4",
+                    "secondary-fixed-dim": "#c1c7cf",
+                    "inverse-primary": "#95d2c8",
+                    "primary": "#00322d",
+                    "outline": "#707977",
+                    "primary-container": "#004b44",
+                    "on-tertiary-fixed-variant": "#4d453f",
+                    "on-tertiary-container": "#b8ada5",
+                    "surface-container-low": "#f6f3ee",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "surface-dim": "#dcdad5",
+                    "inverse-on-surface": "#f3f0eb",
+                    "surface-container": "#f0ede8",
+                    "on-primary-container": "#7ebab0",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#00201c",
+                    "tertiary-fixed": "#ece0d8",
+                    "on-tertiary-fixed": "#201b15"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #fcf9f4; }
+        .serif { font-family: 'Newsreader', serif; }
+        .tonal-shift { background-color: #f6f3ee; transition: background-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 px-6 h-screen w-64 border-r border-[#f6f3ee]/10 bg-[#fcf9f4] dark:bg-[#1c1c19] z-50">
+<div class="mb-10">
+<h1 class="text-2xl font-serif text-[#00322d] dark:text-[#fcf9f4]">The Modern Archive</h1>
+<p class="font-['Newsreader'] tracking-tight text-[#312b25] dark:text-[#f6f3ee] opacity-70">Registry Ledger</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active: Ledger (closest to Dashboard intent) -->
+<a class="flex items-center gap-3 py-2 text-[#00322d] dark:text-[#fcf9f4] font-semibold border-l-2 border-[#00322d] pl-4 transition-all" href="#">
+<span class="material-symbols-outlined">book_5</span>
+<span>Ledger</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors hover:bg-[#f6f3ee]" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span>Registry</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors hover:bg-[#f6f3ee]" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors hover:bg-[#f6f3ee]" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Archive</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-[#595f66] dark:text-[#ebe8e3] hover:text-[#00322d] pl-4 transition-colors hover:bg-[#f6f3ee]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="pt-8 mt-8 border-t border-outline-variant/10 space-y-4">
+<button class="w-full py-2 px-4 bg-primary text-on-primary rounded-lg text-sm transition-transform active:scale-95">
+                Switch Role
+            </button>
+<div class="space-y-2">
+<a class="flex items-center gap-3 text-sm text-[#595f66] hover:text-[#00322d] pl-4" href="#"><span class="material-symbols-outlined text-base">help_outline</span>Support</a>
+<a class="flex items-center gap-3 text-sm text-[#595f66] hover:text-[#00322d] pl-4" href="#"><span class="material-symbols-outlined text-base">logout</span>Logout</a>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] bg-[#fcf9f4]/80 backdrop-blur-md shadow-[0px_20px_40px_rgba(28,28,25,0.06)]">
+<div class="flex items-center gap-8">
+<div class="font-serif text-xl italic text-[#00322d]">Land Registry</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Search parcels, blocks, hashes..." type="text"/>
+</div>
+</div>
+<nav class="flex items-center gap-6 font-['Inter'] text-sm tracking-wide uppercase font-medium">
+<a class="text-[#00322d] border-b-2 border-[#00322d] pb-1" href="#">Provenance</a>
+<a class="text-[#595f66] hover:text-[#00322d] transition-colors" href="#">Transfers</a>
+<a class="text-[#595f66] hover:text-[#00322d] transition-colors" href="#">Legal</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer">history</span>
+<div class="h-8 w-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Archivist profile portrait in professional attire with soft natural lighting and warm neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrhMtY-ji6AwfuT1cT8HxWga-8XyLVjVg1LsYUCRgE7-4kad_-NKsXEHD3QByBdbKIbJSlquMzDHqCD0OM3hYWE7QPfZJGQXDAjIg81d9sq--WvJVGRd4uC26MP0eu8zTmZhwyqBT96FTf7fsycnzvnVrkZMfDemg7uuZVkwOnKih2eQkdKpwf8vKxIvIg1s3b-3O0JNYD6ce8B-fxWiAsnJ8V5h96GSjiFufo1lNJ_2y_CWnHQAvIBzi2k9gTsKHqJo-VoO8CAilB"/>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-md text-xs uppercase tracking-widest font-bold">New Entry</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-12 max-w-[1440px]">
+<!-- Hero Section / Editorial Title -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row items-end justify-between gap-8">
+<div class="max-w-2xl">
+<span class="text-xs font-bold tracking-[0.2em] text-secondary uppercase mb-4 block">Archive Status Dashboard</span>
+<h2 class="serif text-6xl md:text-7xl font-light text-primary leading-tight -ml-1">Immutable Records of the <br/><span class="italic font-normal">Sovereign Earth.</span></h2>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl border-l-4 border-primary max-w-xs">
+<div class="flex items-center gap-2 mb-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2b6860] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#2b6860]"></span>
+</span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-primary">Chain Integrity: Active</span>
+</div>
+<p class="text-xs text-secondary leading-relaxed">The decentralized ledger is currently synchronized across 12,402 nodes globally. Integrity verified 2 minutes ago.</p>
+</div>
+</div>
+</section>
+<!-- High Level Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<!-- Total Registered Lands -->
+<div class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden group">
+<div class="relative z-10">
+<div class="text-xs font-bold text-secondary tracking-widest uppercase mb-2">Registered Assets</div>
+<div class="serif text-5xl text-primary mb-4">42,891</div>
+<div class="flex items-center gap-2 text-xs text-primary font-medium">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12.4% from last epoch</span>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-5 group-hover:scale-110 transition-transform duration-500">foundation</span>
+</div>
+<!-- Total Blocks -->
+<div class="bg-primary p-8 rounded-xl relative overflow-hidden text-on-primary group">
+<div class="relative z-10">
+<div class="text-xs font-bold opacity-70 tracking-widest uppercase mb-2">Blockchain Height</div>
+<div class="serif text-5xl mb-4">842,009</div>
+<div class="text-[10px] font-mono opacity-50 break-all leading-tight">Last Hash: 0x9f1a...4e2d7c82</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-10 group-hover:rotate-12 transition-transform duration-500">database</span>
+</div>
+<!-- Network Status / Capacity -->
+<div class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden group">
+<div class="relative z-10">
+<div class="text-xs font-bold text-secondary tracking-widest uppercase mb-2">Registry Velocity</div>
+<div class="serif text-5xl text-primary mb-4">1.2s</div>
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span>Mean Consensus Time</span>
+</div>
+</div>
+<div class="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+<svg class="w-full h-full text-primary fill-current" viewbox="0 0 100 100">
+<path d="M0 80 Q 25 20, 50 80 T 100 80" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</section>
+<!-- Asymmetric Ledger View & Map -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Recent Activity Ledger (Editorial List) -->
+<div class="lg:col-span-7">
+<div class="flex items-center justify-between mb-8">
+<h3 class="serif text-3xl text-tertiary">Registry Activity</h3>
+<button class="text-xs font-bold text-primary underline underline-offset-4 uppercase tracking-wider">View Full Ledger</button>
+</div>
+<div class="space-y-4">
+<!-- Ledger Item 1 -->
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors rounded-lg group">
+<div class="h-12 w-1 bg-primary group-hover:h-full transition-all"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="serif text-lg text-tertiary">The Blackwood Estate</h4>
+<span class="text-[10px] font-mono text-secondary">0xFD82...E109</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-secondary">
+<span class="font-bold uppercase tracking-widest">Ownership Transfer</span>
+<span class="opacity-50">Today, 14:22 UTC</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward_ios</span>
+</div>
+<!-- Ledger Item 2 -->
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors rounded-lg group">
+<div class="h-12 w-1 bg-secondary group-hover:h-full transition-all"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="serif text-lg text-tertiary">North-East Sector #84</h4>
+<span class="text-[10px] font-mono text-secondary">0xAC11...F442</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-secondary">
+<span class="font-bold uppercase tracking-widest">New Land Plot Seeded</span>
+<span class="opacity-50">Yesterday, 09:10 UTC</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward_ios</span>
+</div>
+<!-- Ledger Item 3 -->
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors rounded-lg group">
+<div class="h-12 w-1 bg-primary group-hover:h-full transition-all"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="serif text-lg text-tertiary">Highland Conservatory</h4>
+<span class="text-[10px] font-mono text-secondary">0x44B2...2291</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-secondary">
+<span class="font-bold uppercase tracking-widest">Legal Lien Resolved</span>
+<span class="opacity-50">Oct 24, 2023</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward_ios</span>
+</div>
+</div>
+</div>
+<!-- Contextual Map / Visual Info -->
+<div class="lg:col-span-5">
+<div class="relative rounded-2xl overflow-hidden shadow-[0px_20px_40px_rgba(28,28,25,0.06)] aspect-[4/5] bg-surface-container-high">
+<img class="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700" data-alt="High-resolution satellite view of rolling hills and agricultural land parcels with distinct border lines in a muted earthy color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1avGYXLvZFD0wP1mTO9u798SiwANnQu_Nml4YHwyjiuYE8aBiwMubeXHu82xZg8dGn0e-ApFKc9z6-MN4_NOUdcR5TvEv6e5Tuqbjhj-n6jI5J1nhIxZOibtrtibjnqPOmnZYVO6sT0xvaG2wvQBu3k_O7f9L6jK9GICknJZ-wxLChsdy5vmFr1F661MCcV_LDK71GxpD7R-JNHA4KMM-SDi4WU4V93VLVHECSRwL20t_ilFzSThomVBtdaCLB-YEt5RSTTSvwx0m"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-8 text-on-primary">
+<div class="serif text-2xl mb-2">Global Registry Coverage</div>
+<p class="text-sm opacity-80 mb-6">Explore the physical dimension of the ledger. Zoom into individual parcels to see cryptographic provenance threads.</p>
+<button class="w-full py-4 bg-surface text-primary rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">explore</span>
+                            Open Interactive Map
+                        </button>
+</div>
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm p-3 rounded-xl">
+<div class="text-[10px] font-bold text-primary uppercase tracking-tighter mb-1">Node Density</div>
+<div class="flex gap-1">
+<div class="w-1 h-3 bg-primary"></div>
+<div class="w-1 h-5 bg-primary"></div>
+<div class="w-1 h-2 bg-primary"></div>
+<div class="w-1 h-6 bg-primary"></div>
+<div class="w-1 h-4 bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tertiary Info Cards -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16 pb-12">
+<div class="p-6 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary mb-4">gavel</span>
+<div class="text-xs font-bold text-secondary uppercase mb-1">Legal Compliant</div>
+<p class="text-xs text-tertiary">Fully integrated with Basel IV standards for digital asset registration.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary mb-4">history_edu</span>
+<div class="text-xs font-bold text-secondary uppercase mb-1">Audit Trail</div>
+<p class="text-xs text-tertiary">100% of historical ownership changes are preserved in archival nodes.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary mb-4">shield</span>
+<div class="text-xs font-bold text-secondary uppercase mb-1">Quantum Safe</div>
+<p class="text-xs text-tertiary">Utilizing post-quantum lattice-based encryption for long-term security.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary mb-4">public</span>
+<div class="text-xs font-bold text-secondary uppercase mb-1">Eco-Friendly</div>
+<p class="text-xs text-tertiary">Proof-of-Stake consensus with carbon-neutral offset protocols.</p>
+</div>
+</section>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-8 right-8 h-14 w-14 rounded-full bg-primary text-on-primary shadow-xl flex items-center justify-center group active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform">add</span>
+<div class="absolute right-16 bg-primary text-on-primary px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            New Registry Entry
+        </div>
+</button>
+</body></html>
