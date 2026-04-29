@@ -4,6 +4,7 @@ class LandContract {
   constructor() {
     this.blockchain = new Blockchain();
     this.worldState = new Map(); // landId → current land record
+    this.suspiciousTransactions = []; // List of flagged transactions
   }
 
   /**
@@ -107,6 +108,24 @@ class LandContract {
    */
   getAllLands() {
     return Array.from(this.worldState.values());
+  }
+
+  /**
+   * Add a suspicious transaction to the system.
+   */
+  addSuspiciousTransaction(transaction) {
+    this.suspiciousTransactions.push({
+      ...transaction,
+      id: crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(7),
+      timestamp: new Date().toISOString()
+    });
+  }
+
+  /**
+   * Retrieve all suspicious transactions.
+   */
+  getSuspiciousTransactions() {
+    return this.suspiciousTransactions;
   }
 
   /**

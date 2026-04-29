@@ -6,7 +6,7 @@ module.exports = function createLandRoutes(contract) {
   const router = express.Router();
 
   // ─── POST /api/createLand ───────────────────────────────
-  router.post('/createLand', requireRole('admin'), (req, res) => {
+  router.post('/createLand', requireRole('admin'), async (req, res) => {
     try {
       const { owner, location, area, price, latitude, longitude } = req.body;
 
@@ -20,6 +20,34 @@ module.exports = function createLandRoutes(contract) {
       const landId = `LAND-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
 
       const result = contract.createLand(landId, owner, location, parseFloat(area), parseFloat(price), latitude, longitude);
+
+      try {
+          const mlResponse = await fetch('http://localhost:5001/predictFraud', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                  price: parseFloat(price),
+                  timestamp: Date.now(),
+                  pair_txn_count: 0,
+                  land_txn_count: 1,
+                  unique_participants: 1,
+                  frequency: 1
+              })
+          });
+          const mlData = await mlResponse.json();
+          if (mlData.fraud) {
+              contract.addSuspiciousTransaction({
+                  landId,
+                  seller: "SYSTEM",
+                  buyer: owner,
+                  score: mlData.score,
+                  reasons: mlData.reasons
+              });
+          }
+      } catch (err) {
+          console.error("ML service error:", err);
+      }
+
       res.status(201).json({ success: true, message: `Land "${landId}" registered successfully.`, ...result });
     } catch (err) {
       res.status(409).json({ success: false, error: err.message });
@@ -27,7 +55,7 @@ module.exports = function createLandRoutes(contract) {
   });
 
   // ─── POST /api/transferLand ─────────────────────────────
-  router.post('/transferLand', requireRole('admin'), (req, res) => {
+  router.post('/transferLand', requireRole('admin'), async (req, res) => {
     try {
       const { landId, newOwner } = req.body;
 
@@ -38,7 +66,61 @@ module.exports = function createLandRoutes(contract) {
         });
       }
 
+      const landBefore = contract.getLand(landId);
+      const previousOwner = landBefore.owner;
+
       const result = contract.transferLand(landId, newOwner);
+
+      // Feature extraction for ML model
+      let history = [];
+      try { history = contract.getHistory(landId); } catch(e){}
+      
+      const land_txn_count = history.length;
+      let unique_participants = new Set();
+      let pair_txn_count = 0;
+      history.forEach(block => {
+          if(block.details.owner) unique_participants.add(block.details.owner);
+          if(block.details.newOwner) unique_participants.add(block.details.newOwner);
+          if(block.details.previousOwner) unique_participants.add(block.details.previousOwner);
+          
+          if(block.type === 'TRANSFER_LAND') {
+              if((block.details.previousOwner === previousOwner && block.details.newOwner === newOwner) ||
+                 (block.details.previousOwner === newOwner && block.details.newOwner === previousOwner)) {
+                  pair_txn_count++;
+              }
+          }
+      });
+      
+      unique_participants.add(newOwner);
+      const frequency = land_txn_count; 
+      
+      try {
+          const mlResponse = await fetch('http://localhost:5001/predictFraud', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                  price: landBefore.price,
+                  timestamp: Date.now(),
+                  pair_txn_count,
+                  land_txn_count,
+                  unique_participants: unique_participants.size,
+                  frequency
+              })
+          });
+          const mlData = await mlResponse.json();
+          if (mlData.fraud) {
+              contract.addSuspiciousTransaction({
+                  landId,
+                  seller: previousOwner,
+                  buyer: newOwner,
+                  score: mlData.score,
+                  reasons: mlData.reasons
+              });
+          }
+      } catch (err) {
+          console.error("ML service error:", err);
+      }
+
       res.status(200).json({ success: true, message: `Land "${landId}" transferred to "${newOwner}".`, ...result });
     } catch (err) {
       res.status(404).json({ success: false, error: err.message });
@@ -81,6 +163,16 @@ module.exports = function createLandRoutes(contract) {
   router.get('/validate', (_req, res) => {
     const result = contract.validateChain();
     res.json({ success: true, ...result });
+  });
+
+  // ─── GET /api/suspicious ────────────────────────────────
+  router.get('/suspicious', requireRole('admin'), (req, res) => {
+    try {
+      const suspicious = contract.getSuspiciousTransactions();
+      res.json({ success: true, suspicious });
+    } catch (err) {
+      res.status(500).json({ success: false, error: err.message });
+    }
   });
 
   return router;

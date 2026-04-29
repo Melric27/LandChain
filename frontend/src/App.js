@@ -6,6 +6,7 @@ import TransferLand from './pages/TransferLand';
 import ViewLand from './pages/ViewLand';
 import ViewHistory from './pages/ViewHistory';
 import ViewChain from './pages/ViewChain';
+import SuspiciousTransactions from './pages/SuspiciousTransactions';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Ledger', icon: 'book_5' },
@@ -14,6 +15,7 @@ const NAV_ITEMS = [
   { path: '/view', label: 'Lookup', icon: 'inventory_2' },
   { path: '/history', label: 'History', icon: 'history_edu' },
   { path: '/chain', label: 'Blockchain', icon: 'database' },
+  { path: '/suspicious', label: 'Fraud Alerts', icon: 'gpp_maybe', adminOnly: true },
 ];
 
 function App() {
@@ -30,7 +32,11 @@ function App() {
           </div>
 
           <div className="flex-1 space-y-2">
-            {NAV_ITEMS.filter(item => item.path !== '/chain' || role === 'admin').map((item) => (
+            {NAV_ITEMS.filter(item => {
+              if (item.path === '/chain' && role !== 'admin') return false;
+              if (item.adminOnly && role !== 'admin') return false;
+              return true;
+            }).map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
@@ -103,6 +109,7 @@ function App() {
               <Route path="/view" element={<ViewLand role={role} />} />
               <Route path="/history" element={<ViewHistory role={role} />} />
               <Route path="/chain" element={<ViewChain role={role} />} />
+              <Route path="/suspicious" element={<SuspiciousTransactions role={role} />} />
             </Routes>
           </main>
         </div>
